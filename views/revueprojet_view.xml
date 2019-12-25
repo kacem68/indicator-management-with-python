@@ -1,0 +1,317 @@
+<odoo>
+		<!-- LIST VIEW -->
+		<record id="revueprojet_view_tree" model="ir.ui.view">
+			<field name="name">historique  revue projet</field>
+			<field name="model">revue.projet</field>
+			<field name="arch" type="xml">
+				<tree>
+				  <field name="nomduprojet"/>
+				  <field name="nouvellemissions"/>
+				  <field name="entreesconfirmeesforcast"/>
+				  <field name="departreelforecast"/>
+				  <field name="otdmoyen"/>
+				  <field name="rftmoyen"/>
+				  <field name="teamcompliance"/>
+				  <field name="tauxdecroissancecumule"/>
+				  <field name="tauxdattributioncumule"/>
+				  <field name="teamcompliance"/>
+				  <field name="nombredicenfindemois"/>
+				  <field name="tauxdintercontratcumule"/>
+				  <field name="daterevue"/>
+
+				</tree>
+			</field>
+		</record>
+			<record id="view_calls_form" model="ir.ui.view">
+			<field name="name">historique revue projet</field>
+			<field name="model">revue.projet</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group name="group_top">
+							<group name="group_left">
+								<field name="nomduprojet" />
+								<field name="daterevue"/>
+							</group>
+						</group>
+						<group name="group_down">
+						   <field name="nouvellemissions"/>
+						   <field name="entreesconfirmeesforcast"/>
+						   <field name="departreelforecast"/>
+						   <field name="otdmoyen"/>
+						   <field name="rftmoyen"/>
+						   <field name="teamcompliance"/>
+						   <field name="tauxdecroissancecumule"/>
+						   <field name="tauxdattributioncumule"/>
+						   <field name="teamcompliance"/>
+						   <field name="nombredicenfindemois"/>
+						  <field name="tauxdintercontratcumule"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+<!-- <field name="view_type">form</field>
+<field name="view_mode">tree,graph</field>
+
+<record id="revueprojet_view" model="ir.ui.view"> 
+  <field name="model">revue.projet</field> 
+  <field name="arch" type="xml"> 
+    <graph type="bar"> 
+      <field name="otdmoyen" /> 
+      <field name="daterevue" type="measure" /> 
+    </graph> 
+  </field> 
+</record>  --> 
+ <record model="ir.ui.view" id="otd_graph">
+   <field name="name">OTD</field>
+   <field name="model">revue.projet</field>
+   <field name="type">graph</field>
+   <field name="arch" type="xml">
+         <graph string="historique OTD">
+              <field name="otdmoyen" type="col"/>
+              <field name="daterevue" type="row"/>
+        </graph>
+    </field>
+</record>
+
+ <record model="ir.ui.view" id="rft_graph">
+   <field name="name">RFT</field>
+   <field name="model">revue.projet</field>
+   <field name="type">graph</field>
+   <field name="arch" type="xml">
+         <graph string="historique OTD">
+              <field name="rftmoyen" type="col"/>
+              <field name="daterevue" type="row"/>
+        </graph>
+    </field>
+</record> 
+
+ <record model="ir.ui.view" id="entreesconfirmeesforcast_graph">
+   <field name="name">entrées confirmées forcast</field>
+   <field name="model">revue.projet</field>
+   <field name="type">graph</field>
+   <field name="arch" type="xml">
+         <graph string="historique OTD">
+              <field name="entreesconfirmeesforcast" type="col"/>
+              <field name="daterevue" type="row"/>
+        </graph>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="nouvellemissions_graph">
+   <field name="name">Nouvelle missions</field>
+   <field name="model">revue.projet</field>
+   <field name="type">graph</field>
+   <field name="arch" type="xml">
+         <graph string="historique nouvellemissions">
+              <field name="nouvellemissions" type="col"/>
+              <field name="daterevue" type="row"/>
+        </graph>
+    </field>
+</record>
+
+ <record model="ir.ui.view" id="departreelforecast_graph">
+   <field name="name">Départ réel forecast</field>
+   <field name="model">revue.projet</field>
+   <field name="type">graph</field>
+   <field name="arch" type="xml">
+         <graph string="historique OTD">
+              <field name="departreelforecast" type="col"/>
+              <field name="daterevue" type="row"/>
+        </graph>
+    </field>
+</record>
+
+ <record model="ir.ui.view" id="teamcompliance_graph">
+   <field name="name">Team compliance</field>
+   <field name="model">revue.projet</field>
+   <field name="type">graph</field>
+   <field name="arch" type="xml">
+         <graph string="historique teamcompliance">
+              <field name="teamcompliance" type="col"/>
+              <field name="daterevue" type="row"/>
+        </graph>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="tauxdecroissancecumule_graph">
+   <field name="name">taux de croissance cumulé</field>
+   <field name="model">revue.projet</field>
+   <field name="type">graph</field>
+   <field name="arch" type="xml">
+         <graph string="historique OTD">
+              <field name="tauxdecroissancecumule" type="col"/>
+              <field name="daterevue" type="row"/>
+        </graph>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="nombredicenfindemois_graph">
+   <field name="name">nombre d'ic enfin de mois</field>
+   <field name="model">revue.projet</field>
+   <field name="type">graph</field>
+   <field name="arch" type="xml">
+         <graph string="historique nombre d'ic enfin de mois">
+              <field name="nombredicenfindemois" type="col"/>
+              <field name="daterevue" type="row"/>
+        </graph>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="tauxdattributioncumule_graph">
+   <field name="name">Taux d'attribution cumulé</field>
+   <field name="model">revue.projet</field>
+   <field name="type">graph</field>
+   <field name="arch" type="xml">
+         <graph string="historique Taux d'attribution cumulé">
+              <field name="tauxdattributioncumule" type="col"/>
+              <field name="daterevue" type="row"/>
+        </graph>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="tauxdintercontratcumule_graph">
+   <field name="name">taux d'inter contrat cumulé</field>
+   <field name="model">revue.projet</field>
+   <field name="type">graph</field>
+   <field name="arch" type="xml">
+         <graph string="historique OTD">
+              <field name="tauxdintercontratcumule" type="col"/>
+              <field name="daterevue" type="row"/>
+        </graph>
+    </field>
+</record> 
+
+<record model="ir.ui.view" id="entreesconfirmeesforcast_graph">
+   <field name="name">Rentrées confirmées forcast</field>
+   <field name="model">revue.projet</field>
+   <field name="type">graph</field>
+   <field name="arch" type="xml">
+         <graph string="historique Rentrées confirmées forcast">
+              <field name="entreesconfirmeesforcast" type="col"/>
+              <field name="daterevue" type="row"/>
+        </graph>
+    </field>
+</record> 
+<!-- <record model="ir.ui.view" id="revueprojet_action">
+   <field name="name">historique OTD</field>
+   <field name="res_model">historique OTD</field>
+   <field name="view_type">form</field>
+   <field name="view_mode" >  treen,form,graph,pivot </field>
+</record>
+ -->
+ 		<!-- FORM VIEW -->
+		<!-- record for the “ir.actions.act_window” -->
+		<record id="action_records_form" model="ir.actions.act_window">
+			<field name="name">Revue projet</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">revue.projet</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form,graph</field>
+		</record>
+
+<record id="action_otd_graph" model="ir.actions.act_window">
+    <field name="name">OTD</field>
+    <field name="res_model">revue.projet</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">graph</field>
+    <field name="view_id" ref="otd_graph"/>
+</record>
+
+<record id="action_rft_graph" model="ir.actions.act_window">
+    <field name="name">RFT</field>
+    <field name="res_model">revue.projet</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">graph</field>
+    <field name="view_id" ref="rft_graph"/>
+</record>
+
+						   
+<record id="action_nouvellemissions_graph" model="ir.actions.act_window">
+    <field name="name">Nouvelle missions</field>
+    <field name="res_model">revue.projet</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">graph</field>
+    <field name="view_id" ref="nouvellemissions_graph"/>
+</record>
+
+<record id="action_entreesconfirmeesforcast_graph" model="ir.actions.act_window">
+    <field name="name">Entrées confirmées forcast</field>
+    <field name="res_model">revue.projet</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">graph</field>
+    <field name="view_id" ref="entreesconfirmeesforcast_graph"/>
+</record>
+
+<record id="action_departreelforecast_graph" model="ir.actions.act_window">
+    <field name="name">Départ réel forecast</field>
+    <field name="res_model">revue.projet</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">graph</field>
+    <field name="view_id" ref="departreelforecast_graph"/>
+</record>
+
+<record id="action_teamcompliance_graph" model="ir.actions.act_window">
+    <field name="name">Team compliance</field>
+    <field name="res_model">revue.projet</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">graph</field>
+    <field name="view_id" ref="teamcompliance_graph"/>
+</record>
+
+<record id="action_tauxdecroissancecumule_graph" model="ir.actions.act_window">
+    <field name="name">Taux de croissance cumulé</field>
+    <field name="res_model">revue.projet</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">graph</field>
+    <field name="view_id" ref="tauxdecroissancecumule_graph"/>
+</record>
+
+<record id="action_tauxdattributioncumule_graph" model="ir.actions.act_window">
+    <field name="name">Taux d'attribution cumulé</field>
+    <field name="res_model">revue.projet</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">graph</field>
+    <field name="view_id" ref="tauxdattributioncumule_graph"/>
+</record>
+
+<record id="action_nombredicenfindemois_graph" model="ir.actions.act_window">
+    <field name="name">nombre d'ic enfin demois</field>
+    <field name="res_model">revue.projet</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">graph</field>
+    <field name="view_id" ref="nombredicenfindemois_graph"/>
+</record>
+
+<record id="action_tauxdintercontratcumule_graph" model="ir.actions.act_window">
+    <field name="name">taux d'intercontrat cumulé</field>
+    <field name="res_model">revue.projet</field>
+    <field name="view_type">form</field>
+    <field name="view_mode">graph</field>
+    <field name="view_id" ref="tauxdintercontratcumule_graph"/>
+</record>
+
+		<!-- record for the “ir.actions.act_window” -->
+
+		<!-- menu point -->
+	<menuitem id="menu_records" name="historique revue projet" sequence="22"/>
+		<!-- menu point -->
+
+		<!-- action for the menu point -->
+		<menuitem action="action_records_form" id="menu_action_recs"
+				  parent="menu_records" sequence="10"/>
+		<!-- action for the menu point -->
+	     <menuitem id="indicateur" name="les indicateurs" parent="menu_action_recs" action="action_records_form"/>
+        <menuitem id="OTD" name="OTD" parent="indicateur" action="action_otd_graph"/>
+        <menuitem id="nouvellemissions" name="Nouvelle missions" parent="indicateur" action="action_nouvellemissions_graph"/>
+        <menuitem id="entreesconfirmeesforcast" name="Rentrées confirmées forcast" parent="indicateur" action="action_entreesconfirmeesforcast_graph"/>
+        <menuitem id="departreelforecast" name="Départ réel forecast" parent="indicateur" action="action_departreelforecast_graph"/>
+         <menuitem id="RFT" name="RFT" parent="indicateur" action="action_rft_graph"/>
+         <menuitem id="Teamcompliance" name="Team compliance" parent="indicateur" action="action_teamcompliance_graph"/>
+       <menuitem id="tauxdecroissancecumule" name="tauxdecroissancecumule" parent="indicateur" action="action_tauxdecroissancecumule_graph"/>
+       	<menuitem id="tauxdattributioncumule" name="Taux d'attribution cumulé" parent="indicateur" action="action_tauxdattributioncumule_graph"/>
+        <menuitem id="nombredicenfindemois" name="nombre d'ic en findemois" parent="indicateur" action="action_nombredicenfindemois_graph"/>
+          <menuitem id="cumulé" name="tauxdintercontratcumule" parent="indicateur" action="action_tauxdintercontratcumule_graph"/>
+   
+</odoo>
